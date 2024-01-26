@@ -17,5 +17,4 @@ require("lazy").setup("plugins")
 
 
 
--- TREESITTER CONFIGURATION --
 

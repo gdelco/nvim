@@ -1,4 +1,2 @@
 -- PLUGINS --
-return {
- 
-}
+return {}
