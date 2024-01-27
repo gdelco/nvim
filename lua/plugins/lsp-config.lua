@@ -30,6 +30,9 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+      lspconfig.pylsp.setup({
+        capabilities = capabilities,
+      })
 
 			vim.keymap.set("n", "<Leader>k", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
