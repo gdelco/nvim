@@ -16,4 +16,6 @@ vim.opt.wrap = true
 vim.opt.mouse = 'a'
 vim.opt.numberwidth = 1
 
-
+vim.keymap.set('n', '<leader>c', ':normal gcc<CR>', {})
+vim.keymap.set('n', '<leader>u', ':normal gcu<CR>', {})
+vim.keymap.set('x', '<leader>c', ':normal gc<CR>', {})

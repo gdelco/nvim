@@ -7,7 +7,7 @@ return {
 					enabled = true,
 					auto_trigger = true,
 					keymap = {
-						accept = "<LEADER>j",
+						accept = "<LEADER><CR>",
 					},
 				},
 				panel = {
