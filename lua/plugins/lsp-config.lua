@@ -20,6 +20,17 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
+      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+        vim.lsp.diagnostic.on_publish_diagnostics, {
+          signs = false,
+        }
+      )
+
+      vim.diagnostic.config({
+        underline = true,
+        virtual_text = false,
+      })
+
 			local lspconfig = require("lspconfig")
 			lspconfig.tsserver.setup({
 				capabilities = capabilities,
