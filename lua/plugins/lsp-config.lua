@@ -20,16 +20,15 @@ return {
 		config = function()
 			local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
-      vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics, {
-          signs = false,
-        }
-      )
+			vim.lsp.handlers["textDocument/publishDiagnostics"] =
+				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+					signs = false,
+				})
 
-      vim.diagnostic.config({
-        underline = true,
-        virtual_text = false,
-      })
+			vim.diagnostic.config({
+				underline = true,
+				virtual_text = false,
+			})
 
 			local lspconfig = require("lspconfig")
 			lspconfig.tsserver.setup({
@@ -41,9 +40,12 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
-      lspconfig.pylsp.setup({
-        capabilities = capabilities,
-      })
+			lspconfig.pylsp.setup({
+				capabilities = capabilities,
+			})
+			lspconfig.dockerls.setup({
+				capabilities = capabilities,
+			})
 
 			vim.keymap.set("n", "<Leader>k", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})

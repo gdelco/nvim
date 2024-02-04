@@ -10,6 +10,7 @@ vim.cmd("set softtabstop=2")
 vim.cmd("set shiftwidth=2")
 vim.cmd("set number")
 vim.cmd("set relativenumber")
+vim.cmd("set autoindent")
 vim.opt.clipboard = "unnamedplus"
 vim.opt.termguicolors = true
 vim.opt.wrap = true
