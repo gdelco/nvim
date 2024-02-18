@@ -22,7 +22,7 @@ return {
 
 			vim.lsp.handlers["textDocument/publishDiagnostics"] =
 				vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-					signs = false,
+					signs = true,
 				})
 
 			vim.diagnostic.config({
@@ -40,6 +40,9 @@ return {
 			lspconfig.lua_ls.setup({
 				capabilities = capabilities,
 			})
+      lspconfig.pyright.setup({
+        capabilities = capabilities,
+      })
 			lspconfig.pylsp.setup({
 				capabilities = capabilities,
 			})
