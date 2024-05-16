@@ -2,7 +2,7 @@
 
 vim.g.mapleader = ' '
 
-vim.keymap.set('i', 'jk', '<ESC>', {})
+-- vim.keymap.set('i', 'jk', '<ESC>', {})
 
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=2")

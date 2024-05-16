@@ -49,6 +49,13 @@ return {
 			lspconfig.dockerls.setup({
 				capabilities = capabilities,
 			})
+      lspconfig.clangd.setup({
+				capabilities = capabilities,
+			})
+      lspconfig.docker_compose_language_service.setup({
+        capabilities = capabilities,
+      })
+
 
 			vim.keymap.set("n", "<Leader>k", vim.lsp.buf.hover, {})
 			vim.keymap.set("n", "gd", vim.lsp.buf.definition, {})
