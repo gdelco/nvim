@@ -20,6 +20,12 @@ vim.g.mapleader = " "
 
 vim.opt.mouse = "a"
 
+vim.o.autoread = true
+vim.api.nvim_create_autocmd({'FocusGained', 'BufEnter', 'CursorHold'}, {
+  pattern = '*',
+  command = 'checktime',
+})
+
 vim.opt.colorcolumn = "89"
 
 vim.opt.conceallevel = 2

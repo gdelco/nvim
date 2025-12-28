@@ -18,7 +18,8 @@ return {
 								-- default = ["o1-2024-12-17"] = { opts = { can_reason = true } },
 								-- default = ["o1-mini-2024-09-12"] = { opts = { can_reason = true } },
 								-- default = "gpt-4o-2024-08-06",
-								default = "claude-sonnet-4",
+								default = "claude-sonnet-4.5",
+								-- default = "grok-code-fast-1"
 								-- default = "gpt-5"
 							},
 						},
@@ -103,6 +104,10 @@ return {
 						show_default_actions = true, -- Show the default actions in the action palette?
 						show_default_prompt_library = true, -- Show the default prompt library in the action palette?
 					},
+				},
+				diff = {
+					enabled = true,
+					provider = "inline"
 				},
 			},
 		},

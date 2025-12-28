@@ -72,13 +72,7 @@
 -- }
 
 return {
-
-
-
-
-
 	{
-		-- LUALINE estilo "Eviline" adaptado a Lazy + tu config
 		"nvim-lualine/lualine.nvim",
 		dependencies = { "nvim-tree/nvim-web-devicons" },
 		opts = function()
@@ -119,10 +113,11 @@ return {
 					component_separators = '',
 					section_separators   = '',
 					globalstatus         = true,
-					theme                = {
-						normal   = { c = { fg = colors.fg, bg = colors.bg } },
-						inactive = { c = { fg = colors.fg, bg = colors.bg } },
-					},
+					theme = 'gruvbox-material',
+					-- theme                = {
+					-- 	normal   = { c = { fg = colors.fg, bg = colors.bg } },
+					-- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
+					-- },
 					disabled_filetypes   = {
 						statusline = { "alpha" },
 						tabline    = { "alpha" },
