@@ -8,12 +8,19 @@ return {
 	},
 	config = function()
 		vim.keymap.set("n", "<leader>t", ":Neotree filesystem reveal right<CR>")
+		vim.keymap.set("n", "<leader>T", ":Neotree git_status reveal right<CR>")
 		require("neo-tree").setup({
+			sources = {
+				"filesystem",
+				"buffers",
+				"git_status",
+				"document_symbols",
+			},
 			filesystem = {
-        filtered_items = {
-          hide_dotfiles = false,
-          visible =  true,
-        },
+				filtered_items = {
+					hide_dotfiles = false,
+					visible = true,
+				},
 			},
 		})
 	end,

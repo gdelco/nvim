@@ -113,7 +113,7 @@ return {
 					component_separators = '',
 					section_separators   = '',
 					globalstatus         = true,
-					theme = 'gruvbox-material',
+					theme = 'auto',
 					-- theme                = {
 					-- 	normal   = { c = { fg = colors.fg, bg = colors.bg } },
 					-- 	inactive = { c = { fg = colors.fg, bg = colors.bg } },
@@ -139,6 +139,23 @@ return {
 					lualine_z = {},
 					lualine_c = {},
 					lualine_x = {},
+				},
+				tabline = {
+					lualine_a = {
+						{
+							'buffers',
+							mode = 2, -- nombre + nº buffer
+							show_filename_only = true,
+							hide_filename_extension = false,
+							show_modified_status = true,
+							symbols = {
+								modified = ' ●',
+								alternate_file = '',
+								directory = '',
+							},
+						},
+					},
+					lualine_z = { 'tabs' },
 				},
 				extensions = { "quickfix", "man", "fugitive", "neo-tree", "nvim-tree", "lazy" },
 			}
@@ -313,14 +330,6 @@ return {
 		opts = {},
 		config = function()
 			require("ibl").setup()
-		end,
-	},
-
-	{
-		"akinsho/bufferline.nvim",
-		dependencies = "nvim-tree/nvim-web-devicons",
-		config = function()
-			require("bufferline").setup({})
 		end,
 	},
 

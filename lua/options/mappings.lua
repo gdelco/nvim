@@ -29,6 +29,7 @@ map('n', '<leader>f', telescope.find_files, {})
 map('n', '<leader>F', telescope.git_files, {})
 map('n', '<leader>g', telescope.live_grep, {})
 map('n', '<leader>b', telescope.buffers, {})
+map('n', '<leader>G', telescope.git_status, {})
 
 -- LSP
 map('i', '<C-k>', '<cmd>lua vim.lsp.buf.signature_help()<CR>', { noremap = true, silent = true })

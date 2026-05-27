@@ -1,37 +1,29 @@
-return {
-  -- "srcery-colors/srcery-vim",
-  -- name = "srcery",
-  -- priority = 1000,
-  -- config = function()
-  --   vim.cmd.colorscheme "srcery"
-  -- end,
-	"sainnhe/gruvbox-material",
-	name = "gruvbox-material",
-	priority = 1000,
-	config = function()
-    vim.g.gruvbox_material_enable_italic = true
-		vim.g.gruvbox_material_enable_bold = true
-    vim.g.gruvbox_material_foreground = "mix"  -- o "original"
-	  vim.cmd.colorscheme "gruvbox-material"
-	end
-  -- "oxfist/night-owl.nvim",
-  -- name="night-owl",
-  -- lazy= false,
-  -- priority = 1000,
-  -- config = function()
-  --   require("night-owl").setup()
-  --   vim.cmd.colorscheme("night-owl")
-  -- end,
-	-- "rebelot/kanagawa.nvim",
-	--  name="kanagawa",
-	--  lazy= false,
-	--  priority = 1000,
-	--  config = function()
-	--    require("kanagawa").setup()
-	--    vim.cmd.colorscheme("kanagawa-wave")
-	--    -- vim.cmd.colorscheme("kanagawa-lotus")
-	--    -- vim.cmd.colorscheme("kanagawa-dragon")
-	--  end,
-	
+local function read_mode()
+  local f = io.open(vim.env.HOME .. "/.cache/theme-mode", "r")
+  if not f then return "dark" end
+  local m = (f:read("*l") or "dark"):gsub("%s+", "")
+  f:close()
+  return (m == "light") and "light" or "dark"
+end
 
+local function apply(mode)
+  vim.o.background = mode
+  vim.cmd.colorscheme("everforest")
+  pcall(function() require("lualine").refresh() end)
+end
+
+return {
+  "sainnhe/everforest",
+  priority = 1000,
+  lazy = false,
+  config = function()
+    vim.g.everforest_background = "medium"
+    vim.g.everforest_enable_italic = 1
+    vim.g.everforest_better_performance = 1
+    apply(read_mode())
+
+    vim.api.nvim_create_user_command("ThemeRefresh", function()
+      apply(read_mode())
+    end, {})
+  end,
 }
